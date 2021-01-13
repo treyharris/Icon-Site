@@ -1,0 +1,49 @@
+<article>
+  <site-carbon></site-carbon>
+  <header>
+    <h1>History</h1>
+  </header>
+  <aside>
+    <nav>
+      <ul>
+        <li>
+          <a href="/upgrade">
+            <mdi-icon path="M14,20H10V11L6.5,14.5L4.08,12.08L12,4.16L19.92,12.08L17.5,14.5L14,11V20Z"></mdi-icon>
+            <span>Upgrade Guide</span>
+          </a>
+        </li>
+        <li>
+          <a href="/changelog">
+            <mdi-icon path="M5,3C3.89,3 3,3.89 3,5V19C3,20.11 3.89,21 5,21H19C20.11,21 21,20.11 21,19V5C21,3.89 20.11,3 19,3H5M5,5H19V19H5V5M7,7V9H17V7H7M7,11V13H17V11H7M7,15V17H14V15H7Z"></mdi-icon>
+            <span>Changelog</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <section class="filter">
+      <h3>Filter Audit Entries</h3>
+      <mdi-input-check-list part="filters"></mdi-input-check-list>
+    </section>
+    <div class="warning">
+      <p>Report an audit entry if there are any issues.</p>
+    </div>
+  </aside>
+
+  <main part="loading">
+    <h1>Loading...</h1>
+  </main>
+
+  <main part="error">
+    <h1>Unable to load modification list</h1>
+  </main>
+
+  <main part="none">
+    <h1>No Audit Items Found</h1>
+    <p>Modify filters in the sidebar.</p>
+  </main>
+
+  <main part="main">
+    <mdi-modification part="modification"></mdi-modification>
+    <mdi-button part="more" block>Load More</mdi-button>
+  </main>
+</article>

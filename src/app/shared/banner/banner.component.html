@@ -1,0 +1,11 @@
+<div style="position:relative;">
+    <h1>
+        <span *ngIf="data != null" class="icon">
+            <svg viewBox="0 0 24 24">
+                <path [attr.d]="data"></path>
+            </svg>
+        </span>
+        <span [innerHtml]="name"></span>
+    </h1>
+    <mdi-carbon *ngIf="carbon"></mdi-carbon>
+</div>

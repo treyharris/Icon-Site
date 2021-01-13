@@ -1,0 +1,237 @@
+<nav [ngClass]="{ 'navbar navbar-light': true, 'is-home': isHome }">
+    <div class="mr-auto">
+        <a class="navbar-brand" routerLink="/" routerLinkActive="active">
+            <svg viewBox="0 0 24 24" class="mr-2">
+                <path d="M2,2H8V4H16V2H22V8H20V16H22V22H16V20H8V22H2V16H4V8H2V2M16,8V6H8V8H6V16H8V18H16V16H18V8H16M4,4V6H6V4H4M18,4V6H20V4H18M4,18V20H6V18H4M18,18V20H20V18H18Z"/>
+            </svg>
+            <span [innerHtml]="name"></span>
+        </a>
+    </div>
+    <ul class="nav">
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="/icons" routerLinkActive="active">Icons</a>
+        </li>
+        <li class="nav-item dropdown" [ngClass]="{ 'nav-opened': !isNav }">
+            <button class="btn-link getting-started" (click)="isNav = !isNav">
+                Documentation
+                <mdi-icon [name]="'menu-up'" *ngIf="!isNav"></mdi-icon>
+                <mdi-icon [name]="'menu-down'" *ngIf="isNav"></mdi-icon>
+            </button>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/resources" routerLinkActive="active">Resources</a>
+        </li>
+        <li class="nav-item">
+            <iframe src="https://ghbtns.com/github-btn.html?user=templarian&amp;repo=MaterialDesign&amp;type=star&amp;count=true&amp;" frameborder="0" scrolling="0" width="104" height="20" style="vertical-align: text-bottom;"></iframe>
+        </li>
+        <li class="nav-item" style="margin-left:0;">
+            <a class="nav-link" href="https://github.com/Templarian/MaterialDesign">
+                <mdi-icon [name]="'github'"></mdi-icon>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class="menu pt-3 pb-3" [ngbCollapse]="isNav">
+    <div class="row">
+        <div class="col-md-2">
+            <div>Getting Started</div>
+        </div>
+        <div class="col-md-10">
+            <a routerLink="/getting-started/android" routerLinkActive="active">
+                <mdi-icon [name]="'android'"></mdi-icon>
+                Android
+                <small>Vector Drawables</small>
+            </a>
+            <a class="item" routerLink="/getting-started/angular" routerLinkActive="active">
+                <mdi-icon [name]="'angular'"></mdi-icon>
+                Angular
+                <small>Webfont / Component</small>
+            </a>
+            <a class="item" routerLink="/getting-started/angularjs" routerLinkActive="active">
+                <mdi-icon [name]="'angularjs'"></mdi-icon>
+                AngularJS
+                <small>1.x Support</small>
+            </a>
+            <a class="item" routerLink="/getting-started/bootstrap" routerLinkActive="active">
+                <mdi-icon [name]="'bootstrap'"></mdi-icon>
+                Bootstrap v4
+                <small>Webfont / Shim CSS</small>
+            </a>
+            <a class="item" routerLink="/getting-started/bootstrap-3" routerLinkActive="active">
+                <mdi-icon [name]="'bootstrap'"></mdi-icon>
+                Bootstrap v3
+                <small>Legacy v3</small>
+            </a>
+            <a class="item" routerLink="/getting-started/ember" routerLinkActive="active">
+                <mdi-icon [name]="'ember'"></mdi-icon>
+                Ember
+                <small>Component</small>
+            </a>
+            <a class="item" routerLink="/getting-started/php" routerLinkActive="active">
+                <mdi-icon [name]="'language-php'"></mdi-icon>
+                PHP
+                <small>PHP helper class / Twig</small>
+            </a>
+            <a class="item" routerLink="/getting-started/polymer" routerLinkActive="active">
+                <mdi-icon [name]="'polymer'"></mdi-icon>
+                Polymer
+                <small>v0.5 / v1.0 Supported</small>
+            </a>
+            <a class="item" routerLink="/getting-started/react" routerLinkActive="active">
+                <mdi-icon [name]="'react'"></mdi-icon>
+                React
+                <small>Component</small>
+            </a>
+            <a class="item" routerLink="/getting-started/rollupjs" routerLinkActive="active">
+                <mdi-icon [name]="'rollupjs'"></mdi-icon>
+                rollup.js
+            </a>
+            <a class="item" routerLink="/getting-started/ruby-on-rails" routerLinkActive="active">
+              <mdi-icon [name]="'ruby-on-rails'"></mdi-icon>
+              Ruby on Rails
+              <small>Gem</small>
+            </a>
+            <a class="item" routerLink="/getting-started/svg" routerLinkActive="active">
+                <mdi-icon [name]="'svg'"></mdi-icon>
+                SVG
+            </a>
+            <a class="item" routerLink="/getting-started/vuejs" routerLinkActive="active">
+                <mdi-icon [name]="'vuejs'"></mdi-icon>
+                VueJS
+            </a>
+            <a class="item" routerLink="/getting-started/webpack" routerLinkActive="active">
+                <mdi-icon [name]="'webpack'"></mdi-icon>
+                Webpack
+            </a>
+            <a class="item" routerLink="/getting-started/webfont" routerLinkActive="active">
+                <mdi-icon [name]="'html'"></mdi-icon>
+                Webfont
+                <small>Helper Classes</small>
+            </a>
+            <a class="item" routerLink="/getting-started/windows" routerLinkActive="active">
+                <mdi-icon [name]="'windows'"></mdi-icon>
+                Windows
+                <small>UWP / WPF</small>
+            </a>
+            <a class="item" routerLink="/getting-started/xamarin" routerLinkActive="active">
+                <mdi-icon [name]="'xamarin'"></mdi-icon>
+                Xamarin
+            </a>
+            <a class="item" routerLink="/getting-started/visual-studio-code" routerLinkActive="active">
+                <mdi-icon [name]="'visual-studio-code'"></mdi-icon>
+                VS Code
+                <small>Extension</small>
+            </a>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-2">
+            <div>Guides</div>
+        </div>
+        <div class="col-md-10">
+            <a routerLink="/guide/accessiblility" routerLinkActive="active">
+                <mdi-icon [name]="'human'"></mdi-icon>
+                Accessiblility
+                <small>WCAG</small>
+            </a>
+            <a routerLink="/guide/home-assistant" routerLinkActive="active">
+                <mdi-icon [name]="'home-assistant'"></mdi-icon>
+                Home Assistant
+                <small>Useful Ideas</small>
+            </a>
+            <a routerLink="/guide/webfont-alternatives" routerLinkActive="active">
+                <mdi-icon [name]="'lightbulb-on'"></mdi-icon>
+                Webfont Alternatives
+                <small>Stop using the webfont</small>
+            </a>
+            <a routerLink="/guide/nodejs-scripting" routerLinkActive="active">
+                <mdi-icon [name]="'nodejs'"></mdi-icon>
+                NodeJS Scripting
+                <small>@mdi/util</small>
+            </a>
+            <a class="item" routerLink="/guide/iconify" routerLinkActive="active">
+                <mdi-icon [name]="'iconify'"></mdi-icon>
+                Iconify
+                <small>Webfont alternative</small>
+            </a>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-2">
+            <div>Contribute</div>
+        </div>
+        <div class="col-md-10">
+            <a routerLink="/contributors" routerLinkActive="active">
+                <mdi-icon [name]="'account-circle'"></mdi-icon>
+                Contributors
+                <small>The Team</small>
+            </a>
+            <a routerLink="/contribute" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <mdi-icon [name]="'comment-account'"></mdi-icon>
+                Contributing
+                <small>How to Help</small>
+            </a>
+            <a routerLink="/contribute/third-party" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <mdi-icon [name]="'puzzle-outline'"></mdi-icon>
+                Third Party Guide
+                <small>Integration Guide</small>
+            </a>
+            <a routerLink="/contribute/icon-naming" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <mdi-icon [name]="'textbox'"></mdi-icon>
+                Icon Naming
+                <small>Naming Convention</small>
+            </a>
+            <a routerLink="/contribute/site" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <mdi-icon [name]="'web'"></mdi-icon>
+                Site
+                <small>How to Help</small>
+            </a>
+            <a routerLink="/contribute/site/api" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <mdi-icon [name]="'file-tree'"></mdi-icon>
+                Website API
+                <small>Site Endpoints</small>
+            </a>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-2">
+            <div>Meta</div>
+        </div>
+        <div class="col-md-10">
+            <a routerLink="/about" routerLinkActive="active">
+                <mdi-icon [name]="'information-outline'"></mdi-icon>
+                About
+                <small>Learn More</small>
+            </a>
+            <a routerLink="/issues" routerLinkActive="active">
+                <mdi-icon [name]="'github'"></mdi-icon>
+                GitHub Issues
+                <small>Icon Requests</small>
+            </a>
+            <a routerLink="/history" routerLinkActive="active">
+                <mdi-icon [name]="'clock'"></mdi-icon>
+                History
+                <small>Audit Log</small>
+            </a>
+            <a routerLink="/changelog" routerLinkActive="active">
+                <mdi-icon [name]="'format-list'"></mdi-icon>
+                Changelog
+            </a>
+            <a routerLink="/upgrade" routerLinkActive="active">
+                <mdi-icon [name]="'format-list'"></mdi-icon>
+                Upgrade Guide
+            </a>
+            <a routerLink="/license" routerLinkActive="active">
+                <mdi-icon [name]="'scale-balance'"></mdi-icon>
+                License
+                <small>FAQs</small>
+            </a>
+            <a routerLink="/contact" routerLinkActive="active">
+                <mdi-icon [name]="'email-outline'"></mdi-icon>
+                Contact
+                <small>@Templarian</small>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="mask" *ngIf="!isNav" (click)="isNav = true"></div>

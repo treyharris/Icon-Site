@@ -1,0 +1,29 @@
+- and copious amounts of tea
+- and people like <a href="/contribute">you</a>
+- and a chap in Ireland
+- and a friend in Baltimore
+- and people that submit <a href="https://github.com/Templarian/MaterialDesign/issues">issues</a>
+- and a friend in Japan
+- and that guy that wrote a <a href="https://chrome.google.com/webstore/detail/materialdesignicons-picke/edjaedpifkihpjkcgknfokmibkoafhme">Chrome extension</a>
+- and a friend outside Tampa
+- and a friend in Germany
+- and fans of Material Design
+- and Bond. James Bond.
+- and the Power of Grayskull
+- and oh my God! They killed Kenny!
+- and don’t call me Shirley
+- and may the Force be with you!
+- in a galaxy far, far away
+- – to boldly go where no man has gone before
+- and life uh... finds a way
+- and it's dangerous to go alone! Take this.
+- and a lady in England
+- and a mate in England
+- people who use <a href="https://www.home-assistant.io">Home Assistant</a>
+- once upon a time
+- since 2014
+- and Snake? Snake?! SNAAAAAAAAKE!
+- and my Rattata is in the top percentage
+- and a spoony bard
+- and snakes. Why did it have to be snakes?
+- and billions of bilious blue blistering barnacles!

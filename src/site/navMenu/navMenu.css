@@ -1,0 +1,57 @@
+:host {
+  display: block;
+  background: var(--site-color);
+  padding: 0.5rem;
+}
+
+a {
+  display: inline-flex;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  --mdi-icon-color: #fff;
+  color: #fff;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  border-radius: 0.25rem;
+}
+a:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+a.active,
+a:active,
+a:focus {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+a span {
+  align-self: center;
+}
+
+mdi-icon {
+  margin-right: 0.25rem;
+  margin-left: -0.125rem;
+  align-self: center;
+}
+
+section:not(:first-child) {
+  margin-top: 0.5rem;
+}
+section {
+  margin: 0 -0.5rem 0 -0.5rem;
+  position: relative;
+  padding-left: 0.75rem;
+}
+section::before {
+  content: ' ';
+  height: 100%;
+  width: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  border-radius: 0 0.25rem 0.25rem 0;
+  left: 0;
+}
+
+aside {
+  color: #fff;
+  padding: 0.5rem 1.25rem 0.25rem 1rem;
+}

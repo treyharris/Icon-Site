@@ -1,0 +1,90 @@
+- /getting-started
+- /getting-started/android
+- /getting-started/angular
+- /getting-started/angularjs
+- /getting-started/bootstrap
+- /getting-started/bootstrap-3
+- /getting-started/ember
+- /getting-started/php
+- /getting-started/polymer
+- /getting-started/react
+- /getting-started/rollupjs
+- /getting-started/ruby-on-rails
+- /getting-started/svg
+- /getting-started/vuejs
+- /getting-started/webpack
+- /getting-started/webfont
+- /getting-started/windows
+- /getting-started/xamarin
+- /getting-started/visual-studio-code
+  - none Getting Started /getting-started
+  - android Android _Vector Drawables_ /getting-started/android
+  - angular Angular _Webfont / Component_ /getting-started/angular
+  - angularjs AngularJS _1.x Support_ /getting-started/angularjs
+  - bootstrap Bootstrap _Webfont / Shim CSS_ /getting-started/bootstrap
+    - bootstrap Bootstrap 3 _Legacy_ /getting-started/bootstrap-3
+  - ember Ember /getting-started/ember
+  - language-php PHP _Twig_ /getting-started/php
+  - polymer Polymer _v0.5 / v1.0 Supported_ /getting-started/polymer
+  - react React /getting-started/react
+  - rollupjs rollup.js /getting-started/rollupjs
+  - ruby-on-rails Ruby on Rails /getting-started/ruby-on-rails
+  - svg SVG /getting-started/svg
+  - vuejs Vue.JS /getting-started/vuejs
+  - webpack Webpack /getting-started/webpack
+  - html Webfont _Helper Classes_ /getting-started/webfont
+    - lightbulb-on Webfont Alternatives _Don't use the webfont_ /guide/webfont-alternatives
+  - windows Windows _UWP / WPF_ /getting-started/windows
+  - xamarin Xamarin /getting-started/xamarin
+  - visual-studio-code VS Code /getting-started/visual-studio-code
+- /guides
+- /guide/home-assistant
+- /guide/accessiblility
+- /guide/webfont-alternatives
+- /guide/nodejs-scripting
+- /guide/iconify
+  - none Guides /guides
+  - human Accessiblility _WCAG_ /guide/accessiblility
+  - home-assistant Home Assistant /guide/home-assistant
+  - lightbulb-on Webfont Alternatives _Don't use the webfont_ /guide/webfont-alternatives
+  - nodejs NodeJS Scripting /guide/nodejs-scripting
+  - iconify Iconify SVG framework /guide/iconify
+- /contributors
+- /contribute
+- /contribute/third-party
+- /contribute/first-party
+- /contribute/github
+- /contribute/icon-naming
+- /contribute/site
+- /contribute/site/api
+- /contribute/site/api/data
+- /build/site
+- /code-of-conduct
+  - account-multiple Contributors /contributors
+  - comment-account Contribute /contribute
+    - github GitHub Tools /contribute/github
+  - puzzle-outline Third Party Guide /contribute/third-party
+    - puzzle-outline First Party Guide /contribute/first-party
+  - textbox Icon Naming /contribute/icon-naming
+  - web Site /contribute/site
+    - web Last Build /build/site
+  - file-tree API /contribute/site/api
+    - code-braces Models and Enums /contribute/site/api/data
+  - scale-balance Code of Conduct /code-of-conduct
+- /about
+- /license
+- /history
+- /changelog
+- /upgrade
+- /contact
+  - information-outline About /about
+  - github Github Issues /issues
+  - clock History /history
+    - format-list-checks Changelog /changelog
+    - arrow-up-thick Upgrade Guide /upgrade
+  - scale-balance License /license
+  - email-outline Contact /contact
+- /roadmap
+- /roadmap/brand-icons
+  - format-list Roadmap /roadmap
+  - format-list-check Branding Icons (v5+) /roadmap/brand-icons

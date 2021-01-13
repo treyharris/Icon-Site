@@ -1,0 +1,176 @@
+:host {
+  .step {
+    background: #F1F1F1;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    color: #444;
+  }
+  blockquote {
+    background: #F1F1F1;
+    border-left: 4px solid #CCC;
+    padding: 0.5rem;
+  }
+  .or {
+    display: inline-block;
+    font-weight: bold;
+    color: #444;
+    margin-top: 1.3rem;
+    background: #F1F1F1;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2.5rem;
+  }
+  .form-group-edit {
+    textarea {
+      border-radius: .25rem .25rem 0 0;
+      border-bottom: 0;
+      resize: none;
+    }
+    div {
+      text-align: right;
+      display: block;
+      border-radius: 0 0 .25rem .25rem;
+      border-left: 1px solid #ced4da;
+      border-right: 1px solid #ced4da;
+      border-bottom: 1px solid #ced4da;
+      padding: 0.25rem;
+      background: #FFF;
+    }
+    textarea + div {
+      position: relative;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      &::before {
+        content: ' ';
+        height: 0.5rem;
+        background: #FFF;
+        top: -0.5rem;
+        position: absolute;
+        width: calc(100% + 2px);
+        left: 0;
+        border-left: 1px solid #ced4da;
+        border-right: 1px solid #ced4da;
+        margin-left: -1px;
+      }
+    }
+    textarea:focus + div {
+      border-color: #80bdff;
+      box-shadow: 0 0 0 0.2rem #C0DEFF;
+      &::before {
+        border-left-color: #80bdff;
+        border-right-color: #80bdff;
+      }
+    }
+    textarea:disabled + div {
+      background: #e9ecef;
+      &::before {
+        background: #e9ecef;
+      }
+    }
+  }
+  .style-checkboxes {
+    list-style: none;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
+      button {
+        background: #FFF;
+        padding: 0;
+        position: relative;
+        border: 1px solid #DDD;
+        border-radius: 0.25rem;
+        overflow: hidden;
+        mdi-icon {
+          position: absolute;
+          top: 0.25rem;
+          right: 0.25rem;
+        }
+        img {
+          margin: 0.25rem 2rem 0.25rem 0.25rem;
+          width: 96px;
+          height: 96px;
+        }
+        span {
+          display: block;
+          padding: 0 0.25rem;
+          border-top: 1px solid #DDD;
+          background: rgba(0, 0, 0, 0.05);
+        }
+        &:disabled {
+          opacity: 0.5;
+        }
+      }
+      &.active {
+        button {
+          border-color: #005cbf;
+          background: rgba(0, 123, 255, 0.25);
+          span {
+            border-color: #005cbf;
+          }
+        }
+      }
+    }
+  }
+
+  .base-icon-wrap {
+    border: 1px solid #DDD;
+    border-radius: 0.25rem;
+  }
+
+  .base-icon {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.25rem;
+
+    svg {
+      width: 3rem;
+      height: 3rem;
+      path {
+        fill: #444;
+      }
+    }
+  }
+  .base-icon-name {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .base-icon-btn {
+    border-top: 1px solid #EEE;
+    padding: 0.25rem;
+    text-align: right;
+  }
+
+  .badge {
+    padding: 0.35rem 0.5rem;
+    vertical-align: top;
+    margin-right: 0.25rem;
+  }
+
+  .badge button {
+    border: 0;
+    background: rgba(0, 0, 0, 0.3);
+    color: #FFF;
+    border-radius: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    padding: 2px;
+    margin-left: 0.3rem;
+    margin-right: -0.15rem;
+  }
+  .badge button:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .badge button svg {
+    fill: #FFF;
+  }
+}

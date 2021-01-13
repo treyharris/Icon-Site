@@ -1,0 +1,55 @@
+:host {
+
+    .more {
+        padding: .75rem 0;
+        p {
+            color: #FFF;
+        }
+        ::ng-deep {
+            svg {
+                vertical-align: text-top;
+                margin-right: 0.25rem;
+                
+                path {
+                    fill: #FFF;
+                }
+            }
+        }
+    }
+
+    a {
+        color: #FFF;
+
+        ::ng-deep {
+            svg {
+                vertical-align: middle;
+                path {
+                    fill: #FFF;
+                }
+            }
+        }
+
+        &.list-group-item {
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+
+            &:hover {
+                color: #FFF;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            &.active {
+                background: rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        small {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+    }
+}

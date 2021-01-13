@@ -1,0 +1,509 @@
+<mdi-banner title="Icon Management" [carbon]="false"></mdi-banner>
+<div class="container">
+  <div class="card p-3">
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <p>Please ask on Slack if you are unsure about modifying or adding an icon.</p>
+      </div>
+      <div class="col-md-4 text-right">
+        <button class="btn btn-primary mr-2" (click)="goBack()">Go Back</button>
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-1">
+        <span class="step">Step 1</span>
+      </div>
+      <div class="col-md-11">
+        <label>
+          <span class="d-block">Select a Package</span>
+          <select
+            [disabled]="newIcon !== null"
+            [(ngModel)]="selectedPackage" (change)="selectPackage()" class="custom-select">
+            <option *ngFor="let p of packages" [ngValue]="p">{{p.name}} ({{p.iconCount}})</option>
+          </select>
+        </label>
+        <span class="or ml-3 mr-3">+</span>
+        <label>
+          <span class="d-block">On Behalf of User</span>
+          <select
+            [disabled]="newIcon !== null"
+            [(ngModel)]="selectedUser" (change)="selectUser()" class="custom-select">
+            <option *ngFor="let u of users" [ngValue]="u">{{u.github}} ({{u.iconCount}})</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="row mb-3" *ngIf="selectedPackage">
+      <div class="col-md-1">
+        <span class="step">Step 2</span>
+      </div>
+      <div class="col-md-11">
+        <!-- Select an Icon or New Icon -->
+        <div class="row">
+          <div class="col-md-3">
+            <label>
+              <span class="d-block">Search for an Icon</span>
+              <mdi-icon-search
+                [disabled]="newIcon !== null"
+                [package]="selectedPackage"
+                [(icon)]="selectedIcon"
+                (iconChange)="selectIcon()"></mdi-icon-search>
+            </label>
+          </div>
+          <div class="col-md-1">
+            <span class="or">Or</span>
+          </div>
+          <div class="col-md-3">
+            <div>&nbsp;</div>
+            <button *ngIf="newIcon === null"
+              class="btn btn-outline-success" (click)="addIcon()">Add New Icon</button>
+            <button *ngIf="newIcon !== null"
+              class="btn btn-outline-secondary" (click)="cancelIcon()">Cancel New Icon</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="editIcon !== null || newIcon !== null" class="row mb-3">
+      <div class="col-md-1">
+        <span class="step">Step 3</span>
+      </div>
+      <div class="col-md-7">
+        <label>
+          <span class="d-block">Select a Font</span>
+          <select
+            [(ngModel)]="selectedFont"
+            (change)="selectFont()"
+            class="custom-select">
+            <option *ngFor="let f of fonts" [ngValue]="f">{{f.name}} ({{f.iconCount}})</option>
+          </select>
+        </label>
+        <span class="or ml-3 mr-3">+</span>
+        <label>
+          <span class="d-block">Select a Version</span>
+          <select
+            [(ngModel)]="selectedFontVersion" (change)="selectFontVersion()" class="custom-select">
+            <option *ngFor="let v of versions" [ngValue]="v">{{v.major}}.{{v.minor}}.{{v.patch}} ({{v.iconCount}})</option>
+          </select>
+        </label>
+      </div>
+      <div class="col-md-4 pl-0">
+        <div class="card  text-white bg-info">
+          <div class="card-body">
+            Careful, this defaults all audit logs to the latest font version.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="editIcon !== null" class="row mb-3">
+      <div class="col-md-1">
+        <span class="step">Step 4</span>
+      </div>
+      <div class="col-md-11">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Name</label>
+              <input class="form-control" name="name"
+                [(ngModel)]="editIcon.name"/>
+              <div class="text-right mt-2">
+                <button class="btn btn-primary" (click)="rename()"
+                  [disabled]="selectedIcon.name == editIcon.name || !editIcon.validName()">Rename</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Author</label>
+              <div style="border: 1px solid #DDD;border-radius: 0.25rem;">
+                <div style="margin:0.5rem;">
+                  <span>{{editIcon.user.name}}</span>
+                  <small class="ml-2">{{editIcon.user.github}}</small>
+                </div>
+                <div class="text-right p-1" style="border-top: 1px solid #DDD;">
+                  <button class="btn btn-primary" (click)="assignUser()">Assign Owner</button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Base Icon</label>
+              <div *ngIf="loading">Loading...</div>
+              <div *ngIf="!loading" class="base-icon-wrap">
+                <div *ngIf="baseIcon != null">
+                  <div class="base-icon">
+                    <svg viewBox="0 0 24 24">
+                      <path [attr.d]="baseIcon.data"/>
+                    </svg>
+                  </div>
+                  <div class="base-icon-name">{{baseIcon.name}}</div>
+                  <div class="base-icon-btn">
+                    <button class="btn btn-primary"
+                      (click)="setBaseIcon()">Change Base Icon</button>
+                  </div>
+                </div>
+                <div *ngIf="baseIcon == null">
+                  <div class="alert alert-danger m-1">No Base Icon</div>
+                  <div class="base-icon-btn">
+                    <button class="btn btn-primary"
+                      (click)="setBaseIcon()">Change Base Icon</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div>
+                    <label>Published</label>
+                  </div>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn"
+                      [ngClass]="{'btn-primary active': editIcon.published, 'btn-outline-primary': !editIcon.published}">
+                      <input type="radio"
+                        [value]="true"
+                        [(ngModel)]="editIcon.published"
+                        (change)="published()"
+                        name="production" autocomplete="off"> Production
+                    </label>
+                    <label class="btn"
+                      [ngClass]="{'btn-primary active': !editIcon.published, 'btn-outline-primary': editIcon.published}">
+                      <input type="radio"
+                        [value]="false"
+                        [(ngModel)]="editIcon.published"
+                        (change)="published()"
+                        name="production" autocomplete="off"> Work in Progress
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div>
+                    <label>Deprecated</label>
+                  </div>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn"
+                      [ngClass]="{'btn-primary active': !editIcon.deprecated, 'btn-outline-primary': editIcon.deprecated}">
+                      <input type="radio"
+                        [value]="false"
+                        [(ngModel)]="editIcon.deprecated"
+                        (change)="deprecated()"
+                        name="deprecated" autocomplete="off"> Live
+                    </label>
+                    <label class="btn"
+                      [ngClass]="{'btn-danger active': editIcon.deprecated, 'btn-outline-primary': !editIcon.deprecated}">
+                      <input type="radio"
+                        [value]="true"
+                        [(ngModel)]="editIcon.deprecated"
+                        (change)="deprecated()"
+                        name="deprecated" autocomplete="off"> Deprecated
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <label>Aliases</label>
+              </div>
+              <button
+                class="btn btn-sm btn-primary mr-2"
+                (click)="addAlias()">Add Alias</button>
+              <span *ngFor="let alias of editIcon.aliases" class="badge badge-secondary">
+                <span>{{alias.name}}</span>
+                <button (click)="removeAlias(alias)">
+                  <svg viewBox="0 0 16 16">
+                    <path d="M 3.05025,4.46447L 4.46447,3.05025L 8,6.58579L 11.5355,3.05025L 12.9497,4.46447L 9.41421,8L 12.9497,11.5355L 11.5355,12.9497L 8,9.41422L 4.46447,12.9497L 3.05025,11.5355L 6.58579,8L 3.05025,4.46447 Z "/>
+                  </svg>
+                </button>
+              </span>
+            </div>
+            <div class="form-group">
+              <div>
+                <label>Tags</label>
+              </div>
+              <button
+                class="btn btn-sm btn-primary mr-2"
+                (click)="addTag()">Add Tag</button>
+              <span *ngFor="let tag of editIcon.tags" class="badge badge-secondary">
+                <span>{{tag.name}}</span>
+                <button (click)="removeTag(tag)">
+                  <svg viewBox="0 0 16 16">
+                    <path d="M 3.05025,4.46447L 4.46447,3.05025L 8,6.58579L 11.5355,3.05025L 12.9497,4.46447L 9.41421,8L 12.9497,11.5355L 11.5355,12.9497L 8,9.41422L 4.46447,12.9497L 3.05025,11.5355L 6.58579,8L 3.05025,4.46447 Z "/>
+                  </svg>
+                </button>
+              </span>
+            </div>
+            <div class="form-group form-group-edit">
+              <label>Description</label>
+              <textarea class="form-control" name="description" rows="4"
+                [(ngModel)]="editIcon.description"></textarea>
+              <div>
+                <button class="btn btn-primary"
+                  [disabled]="editIcon.description == '' || icon.description == editIcon.description"
+                  (click)="updateDescription()">Update</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card" style="background-color: #568EC7;">
+              <svg viewBox="0 0 24 24" style="width:90%;margin:5%;">
+                <path [attr.d]="editIcon.data" style="fill:#FFF;" (error)="pathError()"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="form-group form-group-edit">
+              <label>Path Data</label>
+              <textarea class="form-control" name="data" rows="3"
+                [(ngModel)]="editIcon.data"></textarea>
+              <div>
+                <span class="mr-3"><span [innerText]="editIcon.getPointCount()"></span> Points</span>
+                <button class="btn btn-outline-primary mr-2"
+                  (click)="optimizeEdit()">Optimize Path Data</button>
+                <button class="btn btn-primary"
+                  [disabled]="icon.data == '' || icon.data == editIcon.data || !validEditPath"
+                  (click)="updateData()">Update</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Styles</label>
+          <ul class="style-checkboxes">
+            <li *ngFor="let style of styles" [ngClass]="{ 'active': inStyle(style.id) }">
+              <button (click)="toggleStyle(style)"
+                [disabled]="loading">
+                <mdi-icon name="checkbox-blank-outline" *ngIf="!inStyle(style.id)"></mdi-icon>
+                <mdi-icon name="checkbox-marked-outline" *ngIf="inStyle(style.id)"></mdi-icon>
+                <img src="/assets/resources/grid-96-{{style.name}}.svg"/>
+                <span>{{style.name}}</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="editIcon !== null" class="row mb-3">
+      <div class="col-md-1">
+        <span class="step">Audit</span>
+      </div>
+      <div class="col-md-11">
+        <blockquote>
+          If a mistake is made please use the audit logs below to view and revert the change.
+          This will make another audit entry.
+        </blockquote>
+        <mdi-modification-table [icon]="editIcon"></mdi-modification-table>
+      </div>
+    </div>
+    <div *ngIf="newIcon !== null">
+      <div class="row mb-3">
+        <div class="col-md-1">
+          <span class="step">Step 4</span>
+        </div>
+        <div class="col-md-11">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" name="name"
+                  #newIconName="ngModel"
+                  [(ngModel)]="newIcon.name"/>
+                <div class="alert alert-danger mt-2"
+                  *ngIf="!newIcon.validName()">Name format invalid.</div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-body">
+                  <p>Read the naming guidelines. Ensure the order of the name matches existing conventions.</p>
+                  <p class="mb-0">
+                    <a class="btn btn-outline-secondary" target="_blank" href="/contribute/icon-naming">
+                      <mdi-icon name="file-document-box-outline"></mdi-icon>
+                      Naming Guidelines
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+          <div class="col-md-1">
+            <span class="step">Step 5</span>
+          </div>
+          <div class="col-md-11">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" name="description"
+                    rows="5"
+                    [(ngModel)]="newIcon.description"></textarea>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="card-body">
+                    <p>Markdown <small>Description Supports Markdown</small></p>
+                    <table class="table mb-0">
+                      <tr>
+                        <td><code>**bold**</code></td>
+                        <td><code>_italic_</code></td>
+                        <td><code>`code`</code></td>
+                      </tr>
+                      <tr>
+                        <td><code># Header 1</code></td>
+                        <td><code>## Header 2</code></td>
+                        <td><code>### Header 3</code></td>
+                      </tr>
+                      <tr>
+                        <td><code>- Item List</code></td>
+                        <td><code>1. Number List</code></td>
+                        <td><code>icon:account</code></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="row mb-3">
+        <div class="col-md-1">
+          <span class="step">Step 6</span>
+        </div>
+        <div class="col-md-11">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Path Data</label>
+                <textarea class="form-control" [(ngModel)]="newIcon.data" rows="4"
+                  (change)="pathChange()"></textarea>
+                <!-- <div class="alert alert-danger mt-2">Invalid path data.</div> -->
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="background-color: #568EC7;">
+                <svg viewBox="0 0 24 24" style="width:90%;margin:5%;">
+                  <path [attr.d]="newIcon.data" style="fill:#FFF;" (error)="pathError()"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="card">
+                <div class="card-body">
+                  <p>Font generation requires nicely optimized path data. After pasting in the SVG data click the optimize button below.</p>
+                  <p class="mb-0">
+                    <button class="btn btn-primary"
+                      (click)="optimize()">
+                      Optimize Path Data
+                    </button>
+                    <span class="ml-3" [innerText]="newIcon.getPointCount()"></span> Points
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-1">
+          <span class="step">Step 7</span>
+        </div>
+        <div class="col-md-11">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="mb-2">Production or Work in Progress</div>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn"
+                  [ngClass]="{'btn-primary active': newIcon.published, 'btn-outline-primary': !newIcon.published}">
+                  <input type="radio"
+                    [value]="true"
+                    [(ngModel)]="newIcon.published"
+                    name="production" autocomplete="off"> Production
+                </label>
+                <label class="btn"
+                  [ngClass]="{'btn-primary active': !newIcon.published, 'btn-outline-primary': newIcon.published}">
+                  <input type="radio"
+                    [value]="false"
+                    [(ngModel)]="newIcon.published"
+                    name="production" autocomplete="off"> Work in Progress
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>GitHub Issue <small>(optional)</small></label>
+                <input class="form-control"
+                  [ngClass]="{'is-invalid': isIssueInvalid()}"
+                  name="issue"
+                  [(ngModel)]="issue"/>
+                <div class="invalid-feedback">
+                  Please do not include a # symbol.
+                </div>
+              </div>
+              
+            </div>
+            <div class="col-md-5">
+              <div class="card">
+                <div class="card-body">
+                  <p class="mb-0">Unpublished icons will be inserted into the database, but are hidden from the history page.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-1">
+          <span class="step">Step 8</span>
+        </div>
+        <div class="col-md-11">
+          <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-lg btn-primary"
+                  (click)="submitIcon()"
+                  [disabled]="!validPath() || !newIcon.validName() || null">Publish Icon</button>
+            </div>
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-body">
+                  <p class="mb-0">Every new icon helps the community. Yay Open Source!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of birth</label>
+        <div class="input-group">
+          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>

@@ -1,0 +1,107 @@
+:host {
+    display: block;
+    margin-bottom: 1rem;
+
+    .card {
+        display: block;
+        padding: 0.5rem;
+        position: relative;
+        padding-bottom: 0;
+
+        &::after {
+            content: ' ';
+            position: absolute;
+            height: 1.5rem;
+            left: 0.5rem;
+            right: 0.5rem;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 20%,rgba(255,255,255,1) 100%);
+        }
+
+        &:hover {
+            min-height: calc(56px + 4.3rem);
+
+            .bio {
+                overflow: auto;
+                height: auto;
+                padding-bottom: 0.5rem;
+            }
+            &::after {
+                display: none;
+            }
+        }
+
+        .avatar {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            background: #F1F1F1;
+            vertical-align: top;
+            overflow: hidden;
+
+            img {
+                width: 50px;
+            }
+        }
+        .name {
+            display: inline-block;
+            vertical-align: top;
+            padding-top: 6px;
+            padding-left: 6px;
+
+            small {
+                display: block;
+                font-size: 12px;
+                margin-top: -4px;
+            }
+        }
+        .bio {
+            display: block;
+            margin-top: 6px;
+            font-size: 14px;
+            text-overflow: ellipsis;
+            height: 3.7rem;
+            overflow: hidden;
+            cursor: default;
+        }
+        .icon-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 2px 6px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+            border-left: 1px solid rgba(0, 0, 0, 0.125);
+            border-bottom-left-radius: 0.25rem;
+        }
+    }
+    .github-sponsor::after {
+        bottom: 2.2rem;
+    }
+    .github-sponsored {
+        display: block;
+        position: relative;
+        border: 1px solid #DDD;
+        border-bottom-color: #CCC;
+        background: linear-gradient(180deg, #FFF 0%, #DDD 100%);
+        border-radius: 0.25rem;
+        color: #333;
+        width: 100%;
+        font-size: 0.875rem;
+        text-decoration: none;
+        padding: 2px;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        z-index: 1;
+        mdi-icon ::ng-deep svg {
+            width: 1rem !important;
+            height: 1rem !important;
+            fill: #ea4aaa;
+        }
+        &:hover {
+            border-color: #BBB;
+            border-bottom-color: #AAA;
+        }
+    }
+}

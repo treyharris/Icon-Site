@@ -1,0 +1,196 @@
+@import './../../../node_modules/bootstrap/scss/functions';
+@import './../../../node_modules/bootstrap/scss/variables';
+@import './../../../node_modules/bootstrap/scss/mixins';
+
+:host {
+    .section-header {
+        background: linear-gradient(135deg, #2196F3 0%,#1976D2 100%);
+        min-height: 19rem;
+        color: #FFF;
+
+        h2 {
+            font-size: 9rem;
+            font-weight: bold;
+            font-family: 'Segoe UI Black';
+            color: rgba(0, 0, 0, 0.4);
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+            margin: 1.8rem 0 0 0;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin: -0.5rem 0 0 0;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    }
+    .section-white {
+        background: linear-gradient(135deg, #FFF 0%,#EEE 100%);
+        padding-top: 15px;
+        padding-bottom: 20px;
+        color: #646464;
+        
+        .col-md-4 {
+            padding: 15px 30px;
+        }
+    }
+    .section-why {
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3) inset;
+        padding: 2.75rem 3rem 1.5rem 3rem;
+        color: #FFF;
+        background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+        h2 {
+            font-weight: bold;
+        }
+        p code {
+            background: #FFF;
+            color: #333;
+            border-radius: 0.2rem;
+            padding: 0.1rem 0.2rem;
+        }
+    }
+    .section-clear {
+        color: #FFF;
+        padding-top: 15px;
+        padding-bottom: 20px;
+    }
+    .section-gray {
+        color: #646464;
+        background: #E1E2E1;
+        padding-top: 15px;
+        padding-bottom: 20px;
+    }
+    .btn-outline-blue {
+        @include button-outline-variant(#414F56);
+    }
+    .btn-outline-white {
+        @include button-outline-variant(#FFF);
+        border-color: rgba(255, 255, 255, 0.2);
+        font-size: 1.7rem;
+        padding: 0.4rem 1rem;
+        position: relative;
+        overflow: hidden;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 0.7rem;
+            border-right-color: rgba(255,255,255,0.1);
+            border-top-color: rgba(255,255,255,0.1);
+            transition: border-width 0.2s ease-in;
+        }
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.1);
+            &::after {
+                border-width: 14rem;
+            }
+        }
+    }
+    .light {
+        font-weight: 300;
+    }
+
+    .or {
+        display: inline-block;
+        border-radius: 10px;
+        background: #646464;
+        color: #FFF;
+        font-size: 16px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        vertical-align: middle;
+        font-weight: bold;
+        opacity: 0.5;
+    }
+
+    .nav-link {
+        padding: 4px 8px;
+        background: transparent;
+        border-color: transparent;
+        color: #FFF;
+        opacity: 0.6;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .nav-link.active {
+        cursor: default;
+        padding: 4px 8px;
+        background: #5E5E5E;
+        border-color: transparent;
+        color: #FFF;
+        opacity: 1;
+    }
+    svg.regular,
+    svg.outline {
+        width: 24px;
+        height: 24px;
+        opacity: 0;
+
+        path {
+            fill: #414f56;
+        }
+    }
+    svg.outline {
+        margin-left: -24px;
+    }
+    svg.regular {
+        animation: animationFrames linear 8s;
+        animation-iteration-count: infinite;
+        -webkit-animation: animationFrames linear 8s;
+        -webkit-animation-iteration-count: infinite;
+    }
+
+    svg.outline {
+        animation: animationFrames linear 8s;
+        animation-iteration-count: infinite;
+        animation-delay: 4s;
+        -webkit-animation: animationFrames linear 8s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-delay: 4s;
+    }
+
+    ::ng-deep {
+        .carbon-container {
+            display:inline-block;
+            margin-top:70px;
+        }
+    }
+}
+@keyframes animationFrames {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1
+    }
+    45% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes animationFrames {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1
+    }
+    45% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}

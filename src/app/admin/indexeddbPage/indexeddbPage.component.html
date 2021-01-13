@@ -1,0 +1,79 @@
+<mdi-banner title="IndexedDB Playground" [carbon]="false"></mdi-banner>
+<div class="container-fluid">
+  <div class="row mb-2">
+    <div class="col-md-8">
+      <p>IndexedDB Testing Page</p>
+    </div>
+    <div class="col-md-4 text-right">
+      <button class="btn btn-primary mr-2" (click)="goBack()">Go Back</button>
+      <button class="btn btn-primary" (click)="logout()">Logout</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card p-3">
+        <h2>Create IndexedDB</h2>
+        <button (click)="sync()" [disabled]="isProcessing">Sync Data</button>
+        <button (click)="where()" [disabled]="!isSynced">Run Where 'account'</button>
+        <button (click)="delete()">Delete Database</button>
+      </div>
+      <div class="card p-3 mt-3">
+        <h2>Render All Icons</h2>
+        <button (click)="all()" [disabled]="!isSynced">Render</button>
+        <button (click)="allSync()" [disabled]="isProcessing">Sync + Render</button>
+        <button (click)="allPlaceholders()" [disabled]="isSynced">Render Placeholders</button>
+        <button (click)="clear()" [disabled]="!isSynced">Clear</button>
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="keyup2()" [disabled]="!isSynced" />
+        <div>
+          <svg *ngFor="let icon of icons" viewBox="0 0 24 24" style="display: inline-flex; width: 1.5rem; height: 1.5rem; vertical-align: top;">
+            <path [attr.d]="icon.data" />
+          </svg>
+        </div>
+        <div *ngFor="let icon of placeholders" style="display: inline-flex; width: 1.5rem; height: 1.5rem; vertical-align: top;">
+          aa
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card p-3">
+        <h2>Preview Data</h2>
+        <input type="text" class="form-control" [(ngModel)]="search" (keyup)="keyup()" [disabled]="!isSynced" />
+        <div *ngIf="icon" class="pt-2">
+          <div>id: <code>{{icon.id}}</code></div>
+          <div>codepoint: <code>{{icon.codepoint}}</code></div>
+          <div>name: <code>{{icon.name}}</code></div>
+          <div>version: <code>{{icon.version}}</code></div>
+          <div>
+            <mdi-icon-preview [path]="icon.data" [color]="'#666'"></mdi-icon-preview>
+          </div>
+          <div class="pt-2">
+            Aliases:
+            <div *ngFor="let alias of icon.aliases">
+              <code>{{alias.name}}</code>
+            </div>
+          </div>
+          <div class="pt-2">
+            Tags:
+            <div *ngFor="let tag of icon.tags">
+              <code>{{tag.name}} - {{tag.url}}</code>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!icon" class="pt-2">
+          <p class="alert alert-info">Search icons above</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button (click)="render()">Progressive Render</button>
+  <button (click)="setAll()">Set All</button>
+  <div class="row mt-2">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="grid" id="foo">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

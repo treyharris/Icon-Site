@@ -1,0 +1,163 @@
+:host {
+    position: relative;
+    z-index: 10;
+
+    .nav-item.dropdown button {
+        padding: 4px 8px;
+        margin: -8px -4px;
+        border-radius: 4px 4px 0 0;
+        border-color: transparent;
+        background: transparent;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+    }
+
+    .nav-item.dropdown.nav-opened {
+        button {
+            background: #FFF;
+            color: #222 !important;
+            z-index: 11;
+            position: relative;
+            padding: 4px 8px 14px 8px;
+
+            ::ng-deep {
+                svg path {
+                    fill: #222;
+                }
+            }
+
+            &:hover {
+                background: #FFF;
+                border-radius: 4px 4px 0 0;
+            }
+        }
+    }
+
+    span {
+        color: #FFF;
+    }
+
+    .nav {
+        display: inline-block;
+
+        .nav-link,
+        .btn-link {
+            color: #FFF;
+            cursor: pointer;
+            outline: none;
+
+            &:focus,
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .nav-item {
+        display: inline-block;
+    }
+    nav ::ng-deep {
+        svg {
+            width: 24px;
+            height: 24px;
+            vertical-align: text-bottom;
+
+            path {
+                fill: #FFF;
+            }
+        }
+    }
+
+    .getting-started {
+        ::ng-deep {
+            svg {
+                vertical-align: bottom;
+                margin-bottom: -2px;
+                margin-left: -4px;
+            }
+        }
+    }
+
+    .dropdown-item {
+        padding: 10px 15px;
+        border-bottom: 1px dotted #CCC;
+
+        small {
+            display: block;
+            color: #999;
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    .menu {
+        background: #FFF;
+        padding: 10px 15px;
+        position: absolute;
+        width: 100%;
+        z-index: 3;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+        a {
+            color: #222;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 0.5em;
+            margin-bottom: 0.5em;
+            width: 12em;
+            padding: 0.5em 0.75em;
+            border-radius: 4px;
+
+            &:hover {
+                background: #f1F1F1;
+                text-decoration: none;
+            }
+
+            &.active {
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
+                background: #F1F1F1;
+                cursor: default;
+            }
+
+            ::ng-deep {
+                svg {
+                    float: left;
+                    margin-right: 0.25em;
+                    vertical-align: middle;
+
+                    path {
+                        fill: #333;
+                    }
+                }
+            }
+            small {
+                display: block;
+            }
+        }
+    }
+    
+    .mask {
+        position: fixed;
+        z-index: 2;
+        top: 120px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 120px);
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .is-home {
+        .navbar-brand {
+            span {
+                color: #414F56;
+            }
+            svg path {
+                fill: #414F56;
+            }
+        }
+    }
+}

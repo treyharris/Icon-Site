@@ -1,0 +1,211 @@
+:host {
+
+    .size-24 {
+        .icon {
+            width: 32px;
+            height: 32px;
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+    .size-36 {
+        .icon {
+            width: 44px;
+            height: 44px;
+            svg {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    }
+    .size-48 {
+        .icon {
+            width: 56px;
+            height: 56px;
+            svg {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+
+    .btn-lighter {
+        background: rgba(255, 255, 255, 0.1);
+        color: #FFF;
+        border: rgba(255, 255, 255, 0.1);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    .icon {
+        display: inline-block;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        padding: 4px;
+        border-radius: 4px;
+        line-height: 0;
+
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+
+            path {
+                fill: #646464;
+            }
+        }
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .codepoint {
+            font-size: 14px;
+            font-family: Consolas,monospace;
+            display: block;
+            text-align: center;
+            line-height: 18px;
+            color: #333;
+            border-radius: 4px;
+            margin: 4px -4px 0 -4px;
+        }
+    }
+
+    .filters {
+        padding-bottom: calc(0.5rem - 2px);
+    }
+    .wrap-search {
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+
+        mdi-icon {
+            position: absolute;
+            left: 2px;
+            top: 8px;
+            ::ng-deep svg path {
+                fill: #FFF;
+            }
+        }
+    }
+    .search {
+        width: 300px;
+        font-size: 18px;
+        padding: 5px 10px 5px 30px;
+        border: 0;
+        background: transparent;
+        color: #FFF !important;
+        border-bottom: 2px solid #FFF;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+    }
+
+    .list-tags {
+        overflow-y: auto;
+        margin-top: 0.5rem;
+
+        &::-webkit-scrollbar {
+            width:  10px;
+            height: 10px;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background: #FFF;
+            border-radius: 0 5px 5px 0;
+        }
+    
+        &::-webkit-scrollbar-track {
+            background: #CCC;
+            border-radius: 0 5px 5px 0;
+        }
+    }
+    .list-group-item {
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        color: #555;
+
+        &:hover {
+            background: #F1F1F1;
+        }
+    }
+    .list-tags {
+        max-height: 70vh;
+        overflow: auto;
+        width: 100%;
+        background: transparent;
+        border: 0;
+        padding: 0;
+        box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.7);
+    }
+    .col-sidebar-opened {
+        flex: 0 0 300px;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+    }
+    .col-main-opened {
+        flex: 0 0 calc(100% - 300px);
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .col-sidebar-collapsed {
+        flex: 0 0 120px;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+    }
+    .col-main-collapsed {
+        flex: 0 0 calc(100% - 120px);
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .loading {
+        .loading-spin {
+            margin: 0 auto;
+            width: 48px;
+            height: 48px;
+            -webkit-animation: loading-spin 2s infinite linear;
+                    animation: loading-spin 2s infinite linear;
+            path {
+                fill: #646464;
+            }
+        }
+    }
+    
+    @-webkit-keyframes loading-spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(359deg);
+                    transform: rotate(359deg);
+        }
+    }
+    
+    @keyframes loading-spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(359deg);
+                    transform: rotate(359deg);
+        }
+    }
+}

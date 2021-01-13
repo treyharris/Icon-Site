@@ -1,0 +1,173 @@
+<div style="position: relative;top:0;z-index:0;height: 200px;top:-60px;
+background: linear-gradient(35deg, rgba(255,255,255,1) 0, rgba(255,255,255,1) 260px, rgba(65,79,86,1) 260px, rgba(65,79,86,1) 800px);
+background-size: 800px 200px;
+background-position: right;
+background-repeat: no-repeat;
+background-color: #FFF;margin-bottom:-60px;overflow-y: hidden;">
+    <div style="float:right;padding-right: 20px;">
+        <mdi-carbon></mdi-carbon>
+    </div>
+    <div style="margin-right: 340px; padding: 60px 0 0 16px;max-height: 190px;overflow-y: hidden;">
+        <span *ngFor="let x of icons" style="display: inline-block;margin-bottom: 18px; margin-right: 18px;">
+            <svg class="regular" style="width:24px;height:24px;">
+                <path [attr.d]="x.regular"></path>
+            </svg><svg class="outline" style="width:24px;height:24px;">
+                <path [attr.d]="x.outline"></path>
+            </svg>
+        </span>
+    </div>
+</div>
+<div class="container-fluid section-why">
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Use Anywhere</h2>
+            <p>All icons are available in <code>SVG</code>, <code>JS</code>, <code>XAML</code>, and <code>PNG</code> for use in Web, Android, iOS, Windows or Mac.</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Easily Customizable</h2>
+            <p>The <strong>Icon Editor</strong> lets you quickly customize any icon. Change color, size, padding, and radious before downloading.</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Consistency</h2>
+            <p>Every icon follows the <strong>Material Design Guidelines</strong> for a unified appearance in your app.</p>
+        </div>
+        <div class="col-md-3">
+            <h2>Developer Ready</h2>
+            <p>Use your favorite package manager</p>
+            <p>NPM: <code>@mdi/font</code> <code>@mdi/svg</code> <code>@mdi/js</code></p>
+        </div>
+    </div>
+</div>
+<div class="section-docs" style="background: linear-gradient(35deg, rgba(65,79,86,1) 0, rgba(65,79,86,1) 360px, rgba(255,255,255,1) 360px, rgba(255,255,255,1) 800px);
+background-size: 800px 200px;
+background-position: left;
+background-repeat: no-repeat;
+background-color: #FFF;
+color: #FFF">
+    <div style="width: 400px;padding: 0.5rem 0 0 16px;float: left;">
+        <h2 style="font-size: 1.5rem;margin-top: 1.5rem;">Friendly Documentation</h2>
+        <p>We need to add some copy here that explains why...</p>
+        <p class="mb-4">
+            <button class="btn btn-secondary btn-sm">ReactJS</button>
+            <button class="btn btn-secondary btn-sm">Angular</button>
+            <button class="btn btn-secondary btn-sm">VueJS</button>
+            <button class="btn btn-secondary btn-sm">etc.</button>
+        </p>
+    </div>
+    <div style="float: right;">
+        Icons here
+    </div>
+</div>
+<!--
+<div class="container-fluid section-header" style="box-shadow:0 2px 6px rgba(0,0,0,0.3) inset">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <h2>2202</h2>
+            <a class="btn btn-outline-white"
+               [routerLink]="'/icons'">Material Design Icons</a>
+        </div>
+        <div class="col-md-6 text-center">
+            <h2>154</h2>
+            <a class="btn btn-outline-white"
+               [routerLink]="'/icons/light'">Material Design Icons Light</a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid section-white">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Open Source</h2>
+            <p>With a dedicated community of contributors new high quality icons and documentation are added regularly.</p>
+            <img class="mb-3" src="/assets/resources/home-opensource.svg" style="width:100%;" />
+            <a class="btn btn-outline-secondary btn-block"
+               [routerLink]="'/contributors'">View Contributors</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Documentation</h2>
+            <p>The key to a strong integration is easy to understand documentation for the many frameworks out there.</p>
+            <img class="mb-3" src="/assets/resources/home-documentation.svg" style="width:100%;" />
+            <a class="btn btn-outline-secondary btn-block"
+               [routerLink]="'/getting-started'">Getting Started</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Regular <span class="or">&#x2b0c;</span> <span class="light">Light</span></h2>
+            <p>Whether looking for the standard Material Design style or our lighter variant both are easily viewable.</p>
+            <img class="mb-3" src="/assets/resources/home-variants.svg" style="width:100%;" />
+            <a class="btn btn-outline-blue btn-block"
+               [routerLink]="'/icons'">View all Icons</a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid section-clear">
+    <div class="row">
+        <div class="col-md-6 pt-3" style="padding-left: 30px;padding-right: 30px;">
+            <p style="font-size:1.3rem;">Material Design Icons' growing icon collection allows designers and developers targeting various platforms to download icons in the format, color and size they need for any project.</p>
+        </div>
+        <div class="col-md-3">
+                
+        </div>
+        <div class="col-md-3 pt-3">
+            <div style="display:inline-block;width:300px;height:100px;border:4px solid rgba(0,0,0,0.1);border-radius:4px;"></div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid section-gray">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Integrations</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Home Assistant</h3>
+            <blockquote>
+              Home Assistant is one of the biggest open source home automation frameworks in the world.
+              We use Material Design Icons to show the state of over the 1000 different devices and services
+              that we integrate. There is literally an icon for everything and anything. The odd chance that
+              there is no icon is usually quickly resolved by the awesome and responsive community.
+              – Paulus Schoutsen, Founder Home Assistant
+            </blockquote>
+            <button>View HomeAssistant.io</button>
+        </div>
+        <div class="col-md-4">
+            <h3>Other...</h3>
+        </div>
+        <div class="col-md-4">
+            <h3>CodePen.io</h3>
+        </div>
+    </div>
+</div>
+<div class="container-fluid section-white">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Optimized Path Data</h2>
+            <p>Through constant iterations icons are optimized to reduce point data.</p>
+        </div>
+        <div class="col-md-4">
+            <h2>SASS</h2>
+            <ul class="nav nav-tabs" style="background:#2A2A2A;border-color: #5E5E5E;border-radius: 4px 4px 0 0;">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">_example.scss</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="padding: 4px 8px;">compiled.css</a>
+                </li>
+            </ul>
+            <div class="code">
+                <code style="display:block;border-radius:0 0 4px 4px;background:#333;color:#FFF;"><span style="color:#D7BA7D;">.custom-class</span> <span>&#123;</span><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#9CDCFE;">content:</span> <span style="color:#B5CEA8">mdi</span>(<span style="color:#CE9178;">'information-outline'</span>);<br/>
+                    <span>&#125;</span>
+                </code>
+            </div>
+            <a class="btn btn-link"
+                [routerLink]="'/getting-started'">Getting Started</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Content Delivery Network (CDN)</h2>
+            <p>Sponsored by MaxCDN we have a quick and easy way to include icons into projects.</p>
+            <a class="btn btn-link"
+                [routerLink]="'/icons'">Learn More</a>
+        </div>
+    </div>
+</div>
+-->

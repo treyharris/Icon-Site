@@ -1,0 +1,222 @@
+<mdi-banner title="Release Management" [carbon]="false"></mdi-banner>
+<div class="container-fluid">
+  <div class="card p-3">
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <p>If you do not know what this page is for then do not touch anything! Many of these operations are <em>very</em> CPU intensive and will slow down the production site.</p>
+      </div>
+      <div class="col-md-4 text-right">
+        <button class="btn btn-primary mr-2" (click)="goBack()">Go Back</button>
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7">
+        <div class="card p-3">
+          <h2 class="mb-3">Release Steps</h2>
+          <div class="row mb-3">
+            <div class="col-md-2">
+              <span class="step">Step 1</span>
+            </div>
+            <div class="col-md-10">
+              <label>
+                <span class="d-block">Select a Package</span>
+                <select [(ngModel)]="selectedPackage" (change)="selectPackage()" class="custom-select">
+                  <option *ngFor="let p of packages" [ngValue]="p">{{p.name}} ({{p.iconCount}})</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-2">
+              <span class="step">Step 2</span>
+            </div>
+            <div class="col-md-10">
+              <label>
+                <span class="d-block">Select a Font</span>
+                <select
+                  [(ngModel)]="selectedFont"
+                  (change)="selectFont()"
+                  class="custom-select">
+                  <option *ngFor="let f of fonts" [ngValue]="f">{{f.name}} ({{f.iconCount}})</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-2">
+              <span class="step">Step 3</span>
+            </div>
+            <div class="col-md-10">
+              <label>
+                <span class="d-block">Select a Version</span>
+                <select
+                  [(ngModel)]="selectedFontVersion" (change)="selectFontVersion()" class="custom-select">
+                  <option *ngFor="let v of fontVersions" [ngValue]="v">{{v.major}}.{{v.minor}}.{{v.patch}} ({{v.iconCount}})</option>
+                </select>
+              </label>
+              <span *ngIf="editFontVersion" class="pl-2">
+                <label class="mr-1">
+                  <span class="d-block">Major</span>
+                  <input [(ngModel)]="editFontVersion.major"
+                    style="width: 4rem;"
+                    class="form-control"/>
+                </label>
+                <label class="mr-1">
+                  <span class="d-block">Minor</span>
+                  <input [(ngModel)]="editFontVersion.minor"
+                    style="width: 4rem;"
+                    class="form-control"/>
+                </label>
+                <label class="mr-1">
+                  <span class="d-block">Patch</span>
+                  <input [(ngModel)]="editFontVersion.patch"
+                    style="width: 4rem;"
+                    class="form-control"/>
+                </label>
+                <button class="btn btn-primary"
+                  (click)="updateFontVersion()">Update Version</button>
+              </span>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-2">
+              <span class="step">Step 4</span>
+            </div>
+            <div class="col-md-10">
+              <div class="mb-2">Existing Icons ({{iconsVersion.length}} Icons)</div>
+              <div *ngIf="iconsVersion.length == 0" class="alert alert-danger">
+                No Icons in Release
+              </div>
+              <ul class="list-group">
+                  <li *ngFor="let icon of iconsVersion" class="list-group-item icon-list">
+                    <div class="icon">
+                      <svg viewBox="0 0 24 24">
+                        <path [attr.d]="icon.data"></path>
+                      </svg>
+                    </div>
+                    <div class="name">{{icon.name}}</div>
+                    <div class="codepoint">
+                        <input type="text" class="form-control" [(ngModel)]="icon.codepoint"/>
+                      </div>
+                    <div class="button">
+                      <button class="btn btn-primary" (click)="assign(icon)" [disabled]="!icon.codepoint">Assign</button>
+                    </div>
+                  </li>
+                </ul>
+              <div class="mt-2 mb-2">Verify New Icons ({{iconsNoVersion.length}} Icons)</div>
+              <div *ngIf="iconsNoVersion.length == 0" class="alert alert-info">
+                All Icons have Codepoints!
+              </div>
+              <ul class="list-group">
+                <li *ngFor="let icon of iconsNoVersion" class="list-group-item icon-list">
+                  <div class="icon">
+                    <svg viewBox="0 0 24 24">
+                      <path [attr.d]="icon.data"></path>
+                    </svg>
+                  </div>
+                  <div class="name">{{icon.name}}</div>
+                  <div class="codepoint">
+                    <input type="text" class="form-control" (focus)="focusEmpty(icon)" [(ngModel)]="icon.codepoint"/>
+                  </div>
+                  <div class="button">
+                    <button class="btn btn-primary" (click)="assign(icon)" [disabled]="!icon.codepoint">Assign</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-2">
+              <span class="step">Step 5</span>
+            </div>
+            <div class="col-md-10">
+              <div class="mb-2">Generate <code>@mdi/svg</code></div>
+              <button class="btn btn-primary mr-2"
+                [disabled]="isGenerateSvgDisabled || selectedFontVersion.released"
+                (click)="generateSvg()">Generate</button>
+              <a class="btn btn-outline-primary"
+                [ngClass]="{ 'disabled': !isSvgBundleCached }"
+                [attr.href]="downloadSvgBundle()">Download</a>
+              <span *ngIf="isSvgBundleCached" class="ml-3 align-middle">Cached on {{svgBundleCacheDate}}</span>
+              <div *ngIf="selectedFontVersion.released" class="alert alert-info mt-2">
+                Released versions cannot be generated! Download from cache.
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-2">
+              <span class="step">Step 6</span>
+            </div>
+            <div class="col-md-10">
+              <div class="mb-2">Generate <code>@mdi/font</code></div>
+              <button class="btn btn-primary mr-2"
+                [disabled]="isGenerateFontDisabled || selectedFontVersion.released"
+                (click)="generateFont()">Generate</button>
+              <a class="btn btn-outline-primary"
+                [ngClass]="{ 'disabled': !isFontBundleCached || !isSvgBundleCached }"
+                [attr.href]="downloadFontBundle()">Download</a>
+              <span *ngIf="isFontBundleCached" class="ml-3 align-middle">Cached on {{fontBundleCacheDate}}</span>
+              <div *ngIf="isFontBundleCached && !selectedFontVersion.released" class="alert alert-info mt-2">
+                <strong>Note:</strong> Generate slows down the entire site for ~30 seconds. Download the cache!
+              </div>
+              <div *ngIf="selectedFontVersion.released" class="alert alert-info mt-2">
+                Released versions cannot be generated! Download from cache.
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-2">
+              <span class="step">Step 7</span>
+            </div>
+            <div class="col-md-10">
+              <ul class="pl-3">
+                <li>Generate <code>@mdi/js</code></li>
+                <li>Generate <code>@mdi/angular-material</code></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="card p-3 mb-3">
+          <h2>Release Management</h2>
+          <p>For a release to go out the list below needs to be tested.</p>
+          <ul>
+            <li>Assign Codepoints</li>
+            <li>Generate <code>@mdi/svg</code></li>
+            <li>Verify <code>@mdi/svg</code> works with the webfont builder</li>
+            <li>Generate <code>@mdi/font</code></li>
+            <li>Update <code>@mdi/svg</code> and <code>@mdi/font</code> repos.</li>
+            <li><code>@mdi/js</code> uses <code>npm run build</code></li>
+            <li><code>@mdi/angular-material</code> uses <code>npm run build</code></li>
+          </ul>
+        </div>
+        <div class="card p-3">
+          <h2>FAQ</h2>
+          <ul>
+            <li>
+              <strong>Icon is Missing</strong>
+              <p>Make sure it is published and not in a draft state.</p>
+            </li>
+            <li>
+              <strong>What is a codepoint?</strong>
+              <p>A codepoint is an index (hex encoded) in a font. Codepoints must be unique within a single font and should not change between releases.</p>
+            </li>
+            <li>
+              <strong>How do I know what codepoint to use?</strong>
+              <p>Assuming you want the next in the series simply click in a blank input textbox.</p>
+            </li>
+            <li>
+              <strong>Can I assign codepoints out of order?</strong>
+              <p>No, it will literally break everything.</p>
+            </li>
+            <li>
+              <strong>It won't let me generate published versions?</strong>
+              <p>Unfortantly due to renames there is no way to generate legacy builds.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
