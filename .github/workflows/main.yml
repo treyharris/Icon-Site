@@ -23,7 +23,8 @@ jobs:
       with:
         known-hosts: ${{ secrets.KNOWN_HOST }}
         ftp-server: ${{ secrets.FTP_SERVER }}
-        ftp-user: ${{ secrets.FTP_USERNAME }}
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ''
         local-dir: ${{ secrets.LOCAL_DIR }}
         git-ftp-args: --remote-root ${{ secrets.REMOTE_DIR }}
     - name: Trigger Server Steps
