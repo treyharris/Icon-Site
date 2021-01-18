@@ -1,0 +1,32 @@
+name: CD
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+    - name: Install Dependencies
+      run: npm install
+    - name: Build admin for Production
+      run: npm run build
+    - name: Build site for Production
+      run:  npm run build:site
+    - name: Sync to FTP
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      env:
+        known-hosts: ${{ secrets.KNOWN_HOST }}
+        ftp-server: ${{ secrets.FTP_SERVER }}
+        ftp-user: ${{ secrets.FTP_USERNAME }}
+        local-dir: ${{ secrets.LOCAL_DIR }}
+        git-ftp-args: --remote-root ${{ secrets.REMOTE_DIR }}
+    - name: Trigger Server Steps
+      uses: swinton/httpie.action@69125d73caa2c6821f6a41a86112777a37adc171
+      with:
+        args: POST https://dev.materialdesignicons.com/api/admin/build
