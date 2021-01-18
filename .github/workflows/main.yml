@@ -30,7 +30,7 @@ jobs:
       run:  npm run build:site
     - name: Cleanup
       run: |
-        ssh ${{ secrets.FTP_USERNAME }}@${{ secrets.SSH_SERVER }} -i ~/.ssh/id_rsa_deploy 'find ${{ secrets.REMOTE_DIR }} -name "*.css" -type f -exec rm -rf {} \;find ${{ secrets.REMOTE_DIR }} -name "*.js" -type f -exec rm -rf {} \;'
+        ssh ${{ secrets.FTP_USERNAME }}@${{ secrets.SSH_SERVER }} -i ~/.ssh/id_rsa_deploy 'find ${{ secrets.REMOTE_DIR }} -maxdepth 1 -name "*.css" -type f -exec rm -rf {} \;find ${{ secrets.REMOTE_DIR }} -maxdepth 1 -name "*.js" -type f -exec rm -rf {} \;'
     - name: Sync Files
       uses: burnett01/rsync-deployments@4.1
       with:
