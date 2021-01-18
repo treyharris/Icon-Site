@@ -24,7 +24,7 @@ jobs:
         HOST: ${{ secrets.SSH_SERVER }}
     - name: Cleanup
       run: |
-        ssh ${{ secrets.FTP_USERNAME }}@${{ secrets.SSH_SERVER }} "rsync --version"
+        ssh ${{ secrets.FTP_USERNAME }}@${{ secrets.SSH_SERVER }} -i ~/.ssh/id_rsa_deploy "rsync --version"
     - name: Install Dependencies
       run: npm install
     - name: Build admin for Production
