@@ -12,6 +12,19 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
+    - name: Store SSH Keys
+      run: |
+        mkdir -p ~/.ssh/
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa_deploy
+        sudo chmod 600 ~/.ssh/id_rsa_deploy
+        ssh-keyscan -H "$HOST" > ~/.ssh/known_hosts
+      shell: bash
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+        HOST: ${{ secrets.SSH_SERVER }}
+    - name: Cleanup
+      run: |
+        ssh ${{ secrets.FTP_USERNAME }}@${{ secrets.SSH_SERVER }} "rsync --version"
     - name: Install Dependencies
       run: npm install
     - name: Build admin for Production
