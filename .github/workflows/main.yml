@@ -34,7 +34,7 @@ jobs:
         known-hosts: ${{ secrets.KNOWN_HOST }}
         ftp-server: ${{ secrets.FTP_SERVER }}
         ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ''
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ${{ secrets.LOCAL_DIR }}
         git-ftp-args: --key "~/.ssh/id_rsa_deploy" --remote-root ${{ secrets.REMOTE_DIR }}
     - name: Trigger Server Steps
