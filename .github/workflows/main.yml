@@ -37,7 +37,7 @@ jobs:
         remote_path: ${{ secrets.REMOTE_DIR }}
         remote_host: ${{ secrets.SSH_SERVER }}
         remote_user: ${{ secrets.FTP_USERNAME }}
-        remote_key: ${{ secrets.KEY_PRIVATE }}
+        remote_key: ${{ secrets.DEPLOY_KEY }}
     - name: Trigger Server Steps
       uses: swinton/httpie.action@69125d73caa2c6821f6a41a86112777a37adc171
       with:
