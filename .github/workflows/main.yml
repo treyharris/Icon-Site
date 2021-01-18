@@ -18,8 +18,6 @@ jobs:
       run: npm run build
     - name: Build site for Production
       run:  npm run build:site
-    - name: Install Rsync
-      run: sudo apt-get install rsync
     - name: Sync Files
       uses: burnett01/rsync-deployments@4.1
       with:
