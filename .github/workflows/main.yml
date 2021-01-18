@@ -22,15 +22,15 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
         HOST: ${{ secrets.SSH_SERVER }}
-    - name: Cleanup
-      run: |
-        ssh ${{ secrets.FTP_USERNAME }}@${{ secrets.SSH_SERVER }} -i ~/.ssh/id_rsa_deploy "rsync --version"
     - name: Install Dependencies
       run: npm install
     - name: Build admin for Production
       run: npm run build
     - name: Build site for Production
       run:  npm run build:site
+    - name: Cleanup
+      run: |
+        ssh ${{ secrets.FTP_USERNAME }}@${{ secrets.SSH_SERVER }} -i ~/.ssh/id_rsa_deploy 'find ${{ secrets.REMOTE_DIR }} -name "*.css" -type f -exec rm -rf {} \;find ${{ secrets.REMOTE_DIR }} -name "*.js" -type f -exec rm -rf {} \;'
     - name: Sync Files
       uses: burnett01/rsync-deployments@4.1
       with:
