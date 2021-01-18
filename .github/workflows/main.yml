@@ -36,7 +36,7 @@ jobs:
         ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ${{ secrets.LOCAL_DIR }}
-        git-ftp-args: --key "~/.ssh/id_rsa_deploy" --remote-root ${{ secrets.REMOTE_DIR }}
+        git-ftp-args: --key "~/.ssh/id_rsa_deploy"
     - name: Trigger Server Steps
       uses: swinton/httpie.action@69125d73caa2c6821f6a41a86112777a37adc171
       with:
