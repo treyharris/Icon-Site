@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 5.9.55
+
+- 100 New Icons
+- Updated `identifier`
+
 ## Version 5.8.55
 
 - 100 New Icons
