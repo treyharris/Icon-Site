@@ -34,7 +34,7 @@ jobs:
     - name: Sync Files
       uses: burnett01/rsync-deployments@4.1
       with:
-        switches: -avzr
+        switches: -avzr --exclude 'api'
         path: dist/
         remote_path: ${{ secrets.REMOTE_DIR }}
         remote_host: ${{ secrets.SSH_SERVER }}
