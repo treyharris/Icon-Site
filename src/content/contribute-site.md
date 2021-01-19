@@ -7,7 +7,7 @@ Similar to the icons this site is Open Source. Years ago when the project was sm
 | *Language*  | TypeScript  | TypeScript |
 | *Framework* | Web Components | Angular 9 |
 | *CSS*      | Custom (CSS) | Bootstrap 4 (SASS) |
-| *Source* | [View](https://github.com/Templarian/MaterialDesign-Site/tree/master/src/site) | [View](https://github.com/Templarian/MaterialDesign-Site/tree/master/src) |
+| *Source* | [View](https://github.com/Pictogrammers/Icon-Site/tree/master/src/site) | [View](https://github.com/Pictogrammers/Icon-Site/tree/master/src) |
 
 > **Information:** Both are stored in the same repo, but the non-application logic web components are stored in a seperate repo [here](https://github.com/Templarian/MaterialDesign-Components/tree/master/src/mdi).
 
@@ -22,7 +22,7 @@ From the home page, icon pages, and documentation the public site can be edited.
 
 ### Building a Feature
 
-- Clone the [repo](https://github.com/Templarian/MaterialDesign-Site)
+- Clone the [repo](https://github.com/Pictogrammers/Icon-Site)
 - `npm install`
 - `npm run start:site`
 
@@ -34,7 +34,7 @@ All code relavant to the site is stored in `src/site`. Unless you need to modify
 
 To know if your feature is going to be merged into production it is highly recommended that an issue be created first for the community and contribution team to review.
 
-<a href="https://github.com/Templarian/MaterialDesign-Site/issues" class="button">icon:github View Issues on GitHub</a>
+<a href="https://github.com/Pictogrammers/Icon-Site/issues" class="button">icon:github View Issues on GitHub</a>
 
 #### Feature Requires New Endpoints
 
@@ -79,10 +79,10 @@ Every page has a `.html`, `.scss`, and `.ts`. Most text is contained in Markdown
 
 All features for the site are managed through pull requests. Clone the project in GitHub following the instructions in the readme.
 
-<a href="https://github.com/Templarian/MaterialDesign-Site" class="button">icon:github View on GitHub</a>
+<a href="https://github.com/Pictogrammers/Icon-Site" class="button">icon:github View on GitHub</a>
 
 ## Documentation
 
 Documentation edits and additions can be done directly in GitHub. GitHub will even create pull requests for you if you use one of the links provided on the left sidebar of any page.
 
-<a class="button" href="https://github.com/Templarian/MaterialDesign-Site/tree/master/src/content">icon:file-multiple View all content files on GitHub</a>
+<a class="button" href="https://github.com/Pictogrammers/Icon-Site/tree/master/src/content">icon:file-multiple View all content files on GitHub</a>

@@ -1,6 +1,6 @@
 # Models / Enums
 
-In alphabetical order are all the models with properties (all properties can be viewed in [GitHub](https://github.com/Templarian/MaterialDesign-Site/tree/master/src/app/shared/models)).
+In alphabetical order are all the models with properties (all properties can be viewed in [GitHub](https://github.com/Pictogrammers/Icon-Site/tree/master/src/app/shared/models)).
 
 ## Models
 
@@ -173,7 +173,7 @@ Enums used in above models.
 
 ### DownloadType
 
-`downloadType.enum.ts` [View on GitHub](https://github.com/Templarian/MaterialDesign-Site/blob/master/src/app/shared/enums/downloadType.enum.ts)
+`downloadType.enum.ts` [View on GitHub](https://github.com/Pictogrammers/Icon-Site/blob/master/src/app/shared/enums/downloadType.enum.ts)
 
 ```typescript
 enum DownloadType {
@@ -187,7 +187,7 @@ enum DownloadType {
 
 ### ModificationType
 
-`modificationType.enum.ts` [View on GitHub](https://github.com/Templarian/MaterialDesign-Site/blob/master/src/app/shared/enums/modificationType.enum.ts)
+`modificationType.enum.ts` [View on GitHub](https://github.com/Pictogrammers/Icon-Site/blob/master/src/app/shared/enums/modificationType.enum.ts)
 
 ```typescript
 enum ModificationType {

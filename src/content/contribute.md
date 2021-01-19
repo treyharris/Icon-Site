@@ -44,7 +44,7 @@ This [site](/contribute/site) is open source, from the documentation to the fron
 | *Language*  | TypeScript  | TypeScript |
 | *Framework* | Web Components | Angular 9 |
 | *CSS*      | Custom (CSS) | Bootstrap 4 (SASS) |
-| *Source* | [View](https://github.com/Templarian/MaterialDesign-Site/tree/master/src/site) | [View](https://github.com/Templarian/MaterialDesign-Site/tree/master/src) |
+| *Source* | [View](https://github.com/Pictogrammers/Icon-Site/tree/master/src/site) | [View](https://github.com/Pictogrammers/Icon-Site/tree/master/src) |
 
 The Web Components for the public site are stored in a seperate repo and published to NPM.
 
