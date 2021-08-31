@@ -1,5 +1,133 @@
 # Changelog
 
+## Version 6.1.95
+
+- 281 New Icons
+- Removed Brands
+  - `adobe`
+  - `adobe-acrobat`
+  - `amazon`
+  - `amazon-alexa`
+  - `android-auto`
+  - `android-debug-bridge`
+  - `bandcamp`
+  - `battlenet`
+  - `blogger`
+  - `buffer`
+  - `concourse-ci`
+  - `douban`
+  - `google-photos`
+  - `microsoft-edge-legacy`
+  - `microsoft-yammer`
+  - `telegram`
+  - `untappd`
+  - `vk`
+  - `xamarian-outline`
+  - `xing`
+  - `y-combinator`
+- Other Removed
+  - `cash-usd`
+  - `cash-usd-outline`
+  - `cellphone-android`
+  - `cellphone-iphone`
+  - `do-not-disturb`
+  - `do-not-disturb-off`
+  - `file-pdf`
+  - `file-pdf-outline`
+  - `file-pdf-box-outline`
+  - `home-currency-usd`
+  - `laptop-chromebook`
+  - `laptop-mac`
+  - `laptop-windows`
+  - `pdf-box`
+  - `plus-one`
+  - `poll-box`
+  - `poll-box-outline`
+  - `tablet-ipad`
+- Renamed
+  - `apple-airplay` to `cast-variant`
+  - `application` to `application-outline`
+  - `application-cog` to `application-cog-outline`
+  - `application-export` to `application-export-outline`
+  - `application-import` to `application-import-outline`
+  - `application-settings` to `application-settings-outline`
+  - `bolnisi-cross` to `cross-bolnisi`
+  - `boom-gate-up` to `boom-gate-arrow-up`
+  - `boom-gate-up-outline` to `boom-gate-arrow-up-outline`
+  - `boom-gate-down` to `boom-gate-arrow-down`
+  - `boom-gate-down-outline` to `boom-gate-arrow-down-outline`
+  - `buddhism` to `dharmachakra`
+  - `cellphone-erase` to `cellphone-remove`
+  - `celtic-cross` to `cross-celtic`
+  - `check-box-multiple-outline` to `checkbox-multiple-outline`
+  - `check-box-outline` to `checkbox-outline`
+  - `christianity` to `cross`
+  - `christianity-outline` to `cross-outline`
+  - `face` to `face-man`
+  - `face-outline` to `face-man-outline`
+  - `face-profile` to `face-man-profile`
+  - `face-profile-woman` to `face-woman-profile`
+  - `face-shimmer` to `face-man-shimmer`
+  - `face-shimmer-outline` to `face-man-shimmer-outline`
+  - `flash-circle` to `lightning-bolt-circle`
+  - `floor-lamp-variant` to `floor-lamp-torchiere-variant`
+  - `gif` to `file-gif-box`
+  - `gradient` to `gradient-vertical`
+  - `hand` to `hand-front-right`
+  - `hand-left` to `hand-back-left`
+  - `hand-right` to `hand-back-right`
+  - `hinduism` to `om`
+  - `human-greeting` to `human-greeting-variant`
+  - `iframe` to `application-brackets`
+  - `iframe-outline` to `application-brackets-outline`
+  - `iframe-array` to `application-array`
+  - `iframe-array-outline` to `application-array-outline`
+  - `iframe-braces` to `application-braces`
+  - `iframe-braces-outline` to `application-braces-outline`
+  - `iframe-parentheses` to `application-parentheses`
+  - `iframe-parentheses-outline` to `application-parentheses-outline`
+  - `iframe-variable` to `application-variable`
+  - `iframe-variable-outline` to `application-variable-outline`
+  - `islam` to `star-crescent`
+  - `judaism` to `star-david`
+  - `monitor-clean` to `monitor-shimmer`
+  - `pharmacy` to `mortar-pestle-plus`
+  - `sparkles` to `shimmer`
+  - `teach` to `human-male-board`
+  - `television-clean` to `television-shimmer`
+  - `text-subject` to `text-long`
+  - `twitter-retweet` to `repeat-variant`
+  - `voice-off` to `account-voice-off`
+- Updated
+  - `asterisk`
+  - `bell-outline`
+  - `blender`
+  - `car-door-lock`
+  - `cctv`
+  - `cellphone-remove`
+  - `chart-box-outline`
+  - `chili-off`
+  - `chili-hot`
+  - `chili-medium`
+  - `chili-mild`
+  - `coffee-maker`
+  - `gate`
+  - `gate-arrow-right`
+  - `gate-open`
+  - `hamburger`
+  - `note-minus`
+  - `note-minus-outline`
+  - `note-plus`
+  - `note-plus-outline`
+  - `note-remove`
+  - `note-remove-outline`
+  - `pig-variant`
+  - `pig-variant-outline`
+  - `piggy-bank`
+  - `piggy-bank-outline`
+  - `toggle-switch-outline`
+  - `toggle-switch-off-outline`
+
 ## Version 5.9.55
 
 - 100 New Icons
