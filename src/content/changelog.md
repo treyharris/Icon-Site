@@ -1,5 +1,145 @@
 # Changelog
 
+## Version 6.1.95
+
+- 281 New Icons
+- Read More: [#5409](https://github.com/Templarian/MaterialDesign/issues/5409)
+- Removed
+  - `adobe-acrobat`
+  - `adobe`
+  - `amazon-alexa`
+  - `amazon`
+  - `android-auto`
+  - `android-debug-bridge`
+  - `apple-airplay`
+  - `bandcamp`
+  - `battlenet`
+  - `blogger`
+  - `bolnisi-cross`
+  - `boom-gate-down-outline`
+  - `boom-gate-down`
+  - `buffer`
+  - `cash-usd-outline`
+  - `cash-usd`
+  - `cellphone-android`
+  - `cellphone-iphone`
+  - `check-box-multiple-outline` (use `check-box-multiple-outline`)
+  - `check-box-outline` (use `check-box-outline`)
+  - `currency-usd-circle`
+  - `currency-usd`
+  - `do-not-disturb-off` (use `minus-circle-off`)
+  - `do-not-disturb` (use `minus-circle`)
+  - `douban`
+  - `file-pdf`
+  - `file-pdf-outline`
+  - `file-pdf-box-outline`
+  - `google-photos`
+  - `home-currency-usd`
+  - `laptop-chromebook`
+  - `laptop-mac`
+  - `laptop-windows`
+  - `microsoft-edge-legacy`
+  - `microsoft-yammer`
+  - `pdf-box`
+  - `plus-one` (use `numeric-positive-1`)
+  - `poll-box` (use `chart-box`)
+  - `poll-box-outline` (use `chart-box-outline`)
+  - `tablet-ipad`
+  - `telegram`
+  - `untappd`
+  - `vk`
+  - `xamarian-outline`
+  - `xing`
+  - `y-combinator`
+- Renamed
+  - `buddhism` to `dharmachakra`
+  - `cellphone-erase` to `cellphone-remove`
+  - `celtic-cross` to `cross-celtic`
+  - `christianity` to `cross`
+  - `christianity-outline` to `cross-outline`
+  - `face` to `face-man`
+  - `face-outline` to `face-man-outline`
+  - `face-profile-woman` to `face-woman-profile`
+  - `face-shimmer` to `face-man-shimmer`
+  - `face-shimmer-outline` to `face-man-shimmer-outline`
+  - `flash-circle` to `lightning-bolt-circle`
+  - `floor-lamp-variant` to `floor-lamp-torchiere-variant`
+  - `gif` to `file-gif-box`
+  - `gradient` to `gradient-vertical`
+  - `hand` to `hand-front-right`
+  - `hand-left` to `hand-back-left`
+  - `hand-right` to `hand-back-right`
+  - `hinduism` to `om`
+  - `human-greeting` to `human-greeting-variant`
+  - `iframe` to `application-brackets`
+  - `iframe-outline` to `application-brackets-outline`
+  - `iframe-array` to `application-array`
+  - `iframe-array-outline` to `application-array-outline`
+  - `iframe-braces` to `application-braces`
+  - `iframe-braces-outline` to `application-braces-outline`
+  - `iframe-parentheses` to `application-parentheses`
+  - `iframe-parentheses-outline` to `application-parentheses-outline`
+  - `iframe-variable` to `application-variable`
+  - `iframe-variable-outline` to `application-variable-outline`
+  - `islam` to `star-crescent`
+  - `judaism` to `star-david`
+  - `monitor-clean` to `monitor-shimmer`
+  - `pharmacy` to `mortar-pestle-plus`
+  - `sparkles` to `shimmer`
+  - `teach` to `human-male-board`
+  - `television-clean` to `television-shimmer`
+  - `text-subject` to `text-long`
+  - `twitter-retweet` to `repeat-variant`
+  - `voice-off` to `account-voice-off`
+- Updated
+  - `application-cog`
+  - `application-settings`
+  - `application`
+  - `asterisk`
+  - `battery-minus`
+  - `battery-plus`
+  - `bell-outline`
+  - `blender`
+  - `boom-gate-up-outline`
+  - `boom-gate-up`
+  - `car-door-lock`
+  - `cctv`
+  - `chart-box-outline`
+  - `chili-hot`
+  - `chili-medium`
+  - `chili-mild`
+  - `chili-off`
+  - `file-pdf-box`
+  - `gate-arrow-right`
+  - `gate-open`
+  - `gate`
+  - `hamburger`
+  - `hiking`
+  - `human-greeting`
+  - `note-minus-outline`
+  - `note-minus`
+  - `note-plus-outline`
+  - `note-plus`
+  - `note-remove-outline`
+  - `note-remove`
+  - `piano`
+  - `pig-variant-outline`
+  - `pig-variant`
+  - `piggy-bank-outline`
+  - `piggy-bank`
+  - `roller-skate-off`
+  - `roller-skate`
+  - `rollerblade-off` 
+  - `rollerblade`
+  - `sailboat`
+  - `sausage`
+  - `skate`
+  - `ski-cross-country`
+  - `ski`
+  - `snowboard`
+  - `toggle-switch-off-outline`
+  - `toggle-switch-outline`
+
 ## Version 5.9.55
 
 - 100 New Icons
