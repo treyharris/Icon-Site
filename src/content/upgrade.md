@@ -12,40 +12,35 @@ Follow the guide starting with your version to the version you wish to upgrade t
   - `amazon`
   - `android-auto`
   - `android-debug-bridge`
-  - `apple-airplay`
   - `bandcamp`
   - `battlenet`
   - `blogger`
-  - `bolnisi-cross`
-  - `boom-gate-down-outline`
-  - `boom-gate-down`
   - `buffer`
   - `cash-usd-outline`
   - `cash-usd`
-  - `cellphone-android`
-  - `cellphone-iphone`
-  - `check-box-multiple-outline` (use `check-box-multiple-outline`)
-  - `check-box-outline` (use `check-box-outline`)
+  - `cellphone-android` (use `cellphone`)
+  - `cellphone-iphone` (use `cellphone`)
+  - `concourse-ci`
   - `currency-usd-circle`
   - `currency-usd`
   - `do-not-disturb-off` (use `minus-circle-off`)
   - `do-not-disturb` (use `minus-circle`)
   - `douban`
-  - `file-pdf`
-  - `file-pdf-outline`
-  - `file-pdf-box-outline`
+  - `file-pdf` (use `file-pdf-box`)
+  - `file-pdf-outline` (use `file-pdf-box`)
+  - `file-pdf-box-outline` (use `file-pdf-box`)
   - `google-photos`
   - `home-currency-usd`
-  - `laptop-chromebook`
-  - `laptop-mac`
-  - `laptop-windows`
+  - `laptop-chromebook` (use `laptop`)
+  - `laptop-mac` (use `laptop`)
+  - `laptop-windows` (use `laptop`)
   - `microsoft-edge-legacy`
   - `microsoft-yammer`
-  - `pdf-box`
+  - `pdf-box` (use `file-pdf-box`)
   - `plus-one` (use `numeric-positive-1`)
   - `poll-box` (use `chart-box`)
   - `poll-box-outline` (use `chart-box-outline`)
-  - `tablet-ipad`
+  - `tablet-ipad` (use `tablet`)
   - `telegram`
   - `untappd`
   - `vk`
@@ -53,6 +48,15 @@ Follow the guide starting with your version to the version you wish to upgrade t
   - `xing`
   - `y-combinator`
 - Renamed
+  - `apple-airplay` to `cast-variant`
+  - `application` to `application-outline`
+  - `application-cog` to `application-cog-outline`
+  - `application-settings` to `application-settings-outline`
+  - `bolnisi-cross` to `cross-bolnisi`
+  - `boom-gate-up` to `boom-gate-arrow-up`
+  - `boom-gate-up-outline` to `boom-gate-arrow-up-outline`
+  - `boom-gate-down➜ boom-gate-arrow-down`
+  - `boom-gate-down-outline` to `boom-gate-arrow-down-outline`
   - `buddhism` to `dharmachakra`
   - `cellphone-erase` to `cellphone-remove`
   - `celtic-cross` to `cross-celtic`
