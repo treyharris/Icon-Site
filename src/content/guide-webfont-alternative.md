@@ -6,12 +6,19 @@ This guide will outline some alterntives of the Webfont and why other solutions 
 
 The webfont is several font files that your browser can pick from. All modern browsers will pick the `woff2` font file to download. This font as of `v5.3.45` is **291 KB** and the CSS is **49.4 KB** compressed and growing with each release.
 
-- Large Size (larger than any modern web framework)
-- Use only 10 Icons and it includes all.
-
 <blockquote class="alert alert-info">
   In a scenerio where the frontend does not know all required icons it may be ideal to use the webfont.
 </blockquote>
+
+### Disadvantages of using the webfont
+
+- **Large size** — larger than any modern web framework
+- **Excess data** — use only 10 Icons, and the webfont still includes all.
+- **The potential of _code point collision_:** 
+
+Some of the Icons in the webfont have a code point (Unicode character address) that have been used by other projects for other purposes. For example, a constructed language or "conlang"'s alphabet may be used (in some font designed for that conlang) at the same code points as webfont Icons. The common ways of encoding Unicode text, such as [UTF-8](https://en.wikipedia.org/wiki/UTF-8), do not specify font or language, so without context it's impossible to know whether one of those code points in a snippet of text is supposed to be rendered as an Icon or as (for example) a [CJK (Chinese, Japanese, or Korean) "compatibility ideograph"](http://www.unicode.org/charts/PDF/UF900.pdf).
+
+When you can a) control the fonts in use and b) mix and match fonts as needed, this is not a problem: simply use the webfont for Icons, and another font for other uses. But in some cases — like many text-terminal interfaces — a single font is used for all rendering. In those cases, an attempt to render some languge's text may result in _[mojibake](https://en.wikipedia.org/wiki/mojibake)_: where characters of, say, Japanese are interspersed with Icons.
 
 ## Iconify
 
